@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script defer src="index.js"></script>
+
+  <title>Frontend Mentor | E-commerce product page</title>
+</head>
+<body>
+  <nav>
+    <div class="navigation" role="navigation">
+      <button class="menu-icon" aria-controls="ul-bg" aria-expanded="false">
+        <img src="images/icon-menu.svg" alt="menu icon">
+      </button>
+      <img class="logo" src="images/logo.svg" alt="logo">
+      <div class="ul-bg" aria-hidden="true">
+        <ul>
+          <li>
+            <button class="icon-close" aria-controls="ul-bg">
+              <img src="images/icon-close.svg" alt="close icon">
+            </button>
+          </li>
+          <li> <a href="#">Collections</a></li>
+          <li><a href="#">Men</a></li>
+          <li> <a href="#">Women</a></li>
+          <li> <a href="#">About</a></li>
+          <li> <a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="group">
+      <div class="profile">
+        <button class="icons icon1" aria-label="cart button" aria-controls="cart-contents" aria-expanded="false">
+          <img class="cart" src="images/icon-cart.svg" alt="cart icon">
+          <span id="notif-badge" class="hidden" aria-hidden="true">0</span>
+        </button>
+        <button class="icons icon2" aria-label="profile button">
+          <img class="avatar" src="images/image-avatar.png" alt="avatar">
+        </button>
+      </div>
+      <div id="cart-contents" class="hidden" aria-hidden="true" aria-label="contents inside the cart">
+        <p class="cart-title">Cart</p>
+        <ul id="list-of-items">
+          <p class="empty-cart-msg">Your cart is empty.</p>
+        </ul>
+        <button id="checkout" class="hidden">Checkout</button>
+      </div>
+    </div>
+  </nav>
+  
+  <main class="wrapper">
+    <div class="product-images" role="group" aria-label="product images">
+      <button class=" btn1">
+        <img class="img1" src="images/image-product-1.jpg" alt="product image 1">
+      </button>
+      <button class="btns">
+        <img class="imgs" data-index= "1" src="images/image-product-1-thumbnail.jpg" alt="product thumbnail">
+      </button>
+      <button class="btns">
+        <img class="imgs" data-index= "2" src="images/image-product-2-thumbnail.jpg" alt="product thumbnail">
+      </button>
+      <button class="btns">
+        <img class="imgs" data-index= "3" src="images/image-product-3-thumbnail.jpg" alt="product thumbnail">
+      </button>
+      <button class="btns">
+        <img class="imgs" data-index= "4" src="images/image-product-4-thumbnail.jpg" alt="product thumbnail">
+      </button>
+    </div>
+    <section class="product-info" aria-labelledby="title" aria-describedby="product-desc">
+      
+      <p class="company">Sneaker Company</p>
+      <h1 id="title">Fall Limited Edition Sneakers</h1>
+      <p id="product-desc">These low-profile sneakers are your perfect casual wear companion. Featuring a 
+      durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+      <div class="price-div" role="group">
+        <div class="new-price">
+          <h2 class="price">$125.00</h2>
+          <span class="discount %">50%</span>
+        </div>
+        <span class="old-price">$250.00</span>
+      </div>
+      <div class="qte-cart">
+
+        <div class="qte" role="group">
+
+          <button id="decrease-qte" aria-label="decrease quanity">
+            <img src="images/icon-minus.svg" alt="icon minus">
+          </button>
+          <span class="quantity" aria-live="polite">0</span>
+          <button id="increase-qte" aria-label="increase quantity" >
+            <img src="images/icon-plus.svg" alt="icon plus">
+          </button>
+        </div>  
+        <button class="add-cart" aria-label="add to cart">
+          <img src="images/icon-cart - dark.svg" alt="icon cart">
+          Add to cart
+        </button>
+      </div>
+    </section>
+  </main> 
+  <div class="lightbox-container" aria-hidden="true" aria-label="lightbox image gallery">
+    <div class="lightbox">
+      <div class="close-icon">
+        <button>
+          <img src="images/icon-close-white.svg" alt="icon close">
+        </button>
+      </div>
+      <img class="gallery-main-image" src="images/image-product-1.jpg" alt="product image">
+      
+      <div class="thumbnails">
+        <button class="gallery-buttons">
+          <img data-index= "1" src="images/image-product-1-thumbnail.jpg" alt="thumbnail image">
+        </button>
+        <button class="gallery-buttons">
+          <img data-index="2"  src="images/image-product-2-thumbnail.jpg" alt="thumbnail image">
+        </button>
+        <button class="gallery-buttons">
+          <img data-index="3"  src="images/image-product-3-thumbnail.jpg" alt="thumbnail image">
+        </button>
+        <button class="gallery-buttons">
+          <img data-index="4"  src="images/image-product-4-thumbnail.jpg" alt="thumbnail image">
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-container">
+    <button class="previous">
+      <img src="images/icon-previous.svg" alt="icon previous">
+    </button>
+    <button class="next">
+      <img src="images/icon-next.svg" alt="icon next">
+    </button>
+  </div>
+</body>
+</html>
