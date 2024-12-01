@@ -19,6 +19,7 @@ const checkoutButton= document.getElementById('checkout');
 const menuButton= document.querySelector('.menu-icon');
 const listBackground= document.querySelector('.ul-bg');
 const closeMenuButton= document.querySelector('.icon-close');
+const emptyCartMsg= document.querySelector('.empty-cart-msg');
 
 let qte= 0;
 let currentIndexMain= 1;
@@ -103,23 +104,34 @@ decreaseQte.addEventListener('click', ()=>{
 });
 addToCart.addEventListener('click', ()=>{
     if (qte> 0){
-        document.querySelector('.empty-cart-msg').style.display="none";
+        emptyCartMsg.style.display="none";
         const content= `
         <li>
                 <img class="cart-product-img" src="images/image-product-1-thumbnail.jpg" alt="product image">
                 <div class="list-item">
-                <p>Fall Limited Edition Sneakers</p>
-                <div class="total-price">
-                    <p>$125.00 x<span class='item-quantity'>${qte}</span</p>
-                    <p class="total">$375.00</p>
-                </div>
+                    <p>Fall Limited Edition Sneakers</p>
+                    <div class="total-price">
+                        <p>$125.00 x<span class='item-quantity'>${qte}</span</p>
+                        <p class="total">$375.00</p>
+                    </div>
                 </div>
                 <button class="delete">
-                <img src="images/icon-delete.svg" alt="delete icon">
+                    <img src="images/icon-delete.svg" alt="delete icon">
                 </button>
             </li>
         `;
-        listOfItems.innerHTML+= content;
+
+        listOfItems.insertAdjacentHTML('beforeend', content);
+        const listItem= listOfItems.lastElementChild;
+        const deleteButton= listItem.querySelector('.delete');
+        deleteButton.addEventListener('click', ()=>{
+            deleteListItem(listOfItems, listItem);
+            if(listOfItems.childElementCount === 1){
+                
+                emptyCartMsg.style.display= 'block';
+                checkoutButton.classList.add('hidden');
+            }
+        });
         checkoutButton.classList.remove('hidden');
         notifBadge.innerHTML= (Number(notifBadge.innerHTML)+ qte).toString();
         if (cartContents.classList.contains('hidden')){
@@ -155,15 +167,17 @@ closeMenuButton.addEventListener('click', ()=>{
     menuButton.setAttribute('aria-expanded','false')
 });
 function assignImage(index, imageId){
-
+    
     imageId.src= imageMap[index];
-    // currentIndex= index; 
 }
 function removeActive(array){
     array.forEach(element =>element.classList.remove('active'));
 }
 function AddActiveThumbnail(index, array){
-
+    
     const thumbnail= array[index- 1];
     thumbnail.classList.add('active')
+}
+function deleteListItem(list, item){
+    list.removeChild(item);
 }

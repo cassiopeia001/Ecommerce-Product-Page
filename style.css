@@ -27,7 +27,6 @@ nav{
     width: 80vmax;
     display: flex;
     justify-content: space-between;
-    /* gap: 5rem; */
     padding-bottom: 1.75rem;
     border-bottom: 2px solid var(--gray);
     margin-bottom: 2rem;
@@ -194,6 +193,9 @@ ul a:hover, ul a:focus{
 .delete{
     border: none;
     background: none;
+}
+.delete:hover{
+    cursor: pointer;
 }
 #checkout{
     margin: 0rem 1rem 1.75rem 1rem;
